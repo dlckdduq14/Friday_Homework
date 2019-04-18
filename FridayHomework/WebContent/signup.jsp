@@ -1,6 +1,9 @@
 <%@ page language="java" contentType="text/html; charset=utf-8"
     pageEncoding="utf-8"%>
 
+
+
+
 <form method="post" action="signup_proc.jsp">
 	ID : <input type="text" name="id" onblur="move()"><br>
 	PW : <input type="password" name="pw"><br>

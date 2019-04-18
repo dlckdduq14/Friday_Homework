@@ -27,6 +27,7 @@
 			session.setAttribute("id", id);
 		} else {
 			out.println("다시 로그인해주세요.");
+			
 		}
 	} catch (ClassNotFoundException e) {
 		e.printStackTrace();
