@@ -13,7 +13,7 @@
 	try {
 		DBManager db = DBManager.getInstance();
 		Connection con = db.open();
-		String sql = "select id from member where id=? and pw=?";
+		String sql = "select id from user where id=? and pw=?";
 		PreparedStatement stmt = con.prepareStatement(sql);
 		stmt.setString(1, id);
 		stmt.setString(2, pw);

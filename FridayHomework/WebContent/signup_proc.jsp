@@ -14,7 +14,7 @@
 	try {
 		DBManager db = DBManager.getInstance();
 		Connection con = db.open();
-		String sql = "insert into member values (?, ?, ?)";
+		String sql = "insert into USER values (?, ?, ?)";
 		PreparedStatement stmt = con.prepareStatement(sql);
 		stmt.setString(1, id);
 		stmt.setString(2, pw);

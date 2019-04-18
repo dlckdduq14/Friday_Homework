@@ -12,7 +12,7 @@
 	try {
 		DBManager db = DBManager.getInstance();
 		Connection con = db.open();
-		String sql = "select id from member where id=?";
+		String sql = "select id from user where id=?";
 		PreparedStatement stmt = con.prepareStatement(sql);
 		stmt.setString(1, id);
 		ResultSet rs = stmt.executeQuery();
