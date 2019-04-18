@@ -15,8 +15,8 @@
 		Connection con = db.open();
 		String sql = "insert into MENO values (null, ?, ?, 1)";
 		PreparedStatement stmt = con.prepareStatement(sql);
-		stmt.setString(1, title);
-		stmt.setString(2, content);	
+		stmt.setString(1, content);
+		stmt.setString(2, title);	
 		stmt.executeUpdate();
 	} catch (ClassNotFoundException e) {
 		e.printStackTrace();
