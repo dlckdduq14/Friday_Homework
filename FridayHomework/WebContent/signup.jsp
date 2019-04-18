@@ -4,7 +4,7 @@
 <form method="post" action="signup_proc.jsp">
 	ID : <input type="text" name="id" onblur="move()"><br>
 	PW : <input type="password" name="pw"><br>
-	이름 : <input type="text" name="name"><br>
+	EMail : <input type="text" name="email"><br>
 	<input type="submit" value="회원가입">
 </form>
 <div id="result"></div>
