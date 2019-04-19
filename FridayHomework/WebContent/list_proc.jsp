@@ -20,7 +20,7 @@
  		stmt3.setString(2, "ai");
 		stmt3.executeUpdate();
 		
-		response.sendRedirect("list.jsp");
+		response.sendRedirect("main.jsp");
 		
 	} catch (ClassNotFoundException e) {
 		e.printStackTrace();
