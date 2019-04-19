@@ -19,34 +19,34 @@
 </form>
 
 <%
-	String ID = (String)session.getAttribute("id");
-	String I_NO = request.getParameter("I_Title");
-	String Title = "";
-	List<String> noList = new ArrayList<>();
-	List<String> titleList = new ArrayList<>();
+	String ID_B = (String)session.getAttribute("id");
+	String I_NO_B = request.getParameter("I_Title");
+	String Title_B = "";
+	List<String> noList_B = new ArrayList<>();
+	List<String> titleList_B = new ArrayList<>();
 	
-	int cntIdx = 0;
+	int cntIdx_B = 0;
 	
 	try { 
-		DBManager db = DBManager.getInstance();
-		Connection con = db.open();
+		DBManager db_B = DBManager.getInstance();
+		Connection con_B = db_B.open();
 	
-		String sql = "SELECT COUNT(I_NO) AS INDEXNO FROM `index` WHERE I_NO ";
-		sql += "IN (SELECT DISTINCT I_NO  FROM `index` GROUP BY I_NO)";
-		PreparedStatement stmt = con.prepareStatement(sql);
-		ResultSet rs = stmt.executeQuery();
-		if(rs.next()) {
-			cntIdx = rs.getInt("INDEXNO");
+		String sql_B = "SELECT COUNT(I_NO) AS INDEXNO FROM `index` WHERE I_NO ";
+		sql_B += "IN (SELECT DISTINCT I_NO  FROM `index` GROUP BY I_NO)";
+		PreparedStatement stmt_B = con_B.prepareStatement(sql_B);
+		ResultSet rs_B = stmt_B.executeQuery();
+		if(rs_B.next()) {
+			cntIdx_B = rs_B.getInt("INDEXNO");
 		}
 		
-		String sql2 = "SELECT I_NO , I_Title FROM `index` where ID='ai'";
-		PreparedStatement stmt2 = con.prepareStatement(sql2);
-		ResultSet rs2 = stmt2.executeQuery();
-		while(rs2.next()) {
-			I_NO = rs2.getString("I_NO");
-			Title = rs2.getString("I_Title");
-			noList.add(I_NO);
-			titleList.add(Title);
+		String sql_B2 = "SELECT I_NO , I_Title FROM `index` where ID='ai'";
+		PreparedStatement stmt_B2 = con_B.prepareStatement(sql_B2);
+		ResultSet rs_B2 = stmt_B2.executeQuery();
+		while(rs_B2.next()) {
+			I_NO_B = rs_B2.getString("I_NO");
+			Title_B = rs_B2.getString("I_Title");
+			noList_B.add(I_NO_B);
+			titleList_B.add(Title_B);
 		}
 		
 	} catch (ClassNotFoundException e) {
@@ -57,12 +57,12 @@
 
 
 
-	for(int num = 0; num < cntIdx; num++){
+	for(int num = 0; num < cntIdx_B; num++){
 %>		 
 	<table border="1">
                <tr>
                   <td height="100" width="200">
-                     <input type="button" value="<%=titleList.get(num)%>" onclick="#"
+                     <input type="button" value="<%=titleList_B.get(num)%>" onclick="#"
                      style="width : 200 ; height : 100">   	 
                   </td>
                </tr>

@@ -20,7 +20,7 @@
 		int result = stmt.executeUpdate(); // 성공이면 1 이상, 실패면 0
 		if(result > 0) {
 			//        http://localhost/JspBoard/list.jsp
-			response.sendRedirect("mano.jsp");
+			response.sendRedirect("main.jsp");
 		} else {
 			out.println("삭제 실패");
 		}
