@@ -17,7 +17,7 @@
 		DBManager db = DBManager.getInstance();
 		Connection con = db.open(); //  asc
 
-		String sql = "select M_NO, M_Title, M_Contents from mano where I_NO = ? ";
+		String sql = "select M_NO, M_Title, M_Contents from meno where I_NO = ? ";
 		
 		PreparedStatement stmt = con.prepareStatement(sql);
 		stmt.setString(1, I_NO);
