@@ -13,7 +13,7 @@
 
 		<div class="card" style="width:400px">
 			<div class="card-body">
- 		    <h4 class="card-title">title99</h4>
+ 		    <h4 class="card-title">title</h4>
  		    <a href="view.jsp?id=914" class="btn btn-primary">
  		    	버튼
  		    </a>
