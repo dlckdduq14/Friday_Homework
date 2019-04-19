@@ -6,11 +6,13 @@
 
 <%@ page language="java" contentType="text/html; charset=EUC-KR"
 	pageEncoding="EUC-KR"%>
-
+<%
+String id = (String) session.getAttribute("id");
+%>
 <body>
 	<table border="1" width="1400" height="600" align="center">
 		<tr height="150">
-			<td width="150">내용</td>
+			<td width="150"><%=id %>님 환영합니다.</td>
 			<!-- 메모 보여주는 곳 -->
 			<td colspan="3" rowspan="2">
 				<%
