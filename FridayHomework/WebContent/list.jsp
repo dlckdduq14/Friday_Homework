@@ -9,11 +9,11 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
     
-<form method="post" action="list_proc.jsp">
+<form method="get" action="list_proc.jsp">
 <table border="1">
   <tr>
     <td height="50" width="200"><textarea name="I_Title"></textarea>
-    <input type="submit" value="저장"></td>
+    <input type="button" value="저장"></td>
   </tr>
 </table>
 </form>
