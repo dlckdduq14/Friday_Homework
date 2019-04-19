@@ -18,8 +18,10 @@
 		stmt.setString(1, content);
 		stmt.setString(2, title);	
 		stmt.executeUpdate();
+		response.sendRedirect("main.jsp");
 	} catch (ClassNotFoundException e) {
 		e.printStackTrace();
+		
 	} catch (SQLException e) {
 		e.printStackTrace();
 	}	

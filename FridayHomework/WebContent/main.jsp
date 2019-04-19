@@ -11,6 +11,7 @@
 <%
 	String id = (String) session.getAttribute("id");
 %>
+<form method="post" action="creatememo_proc.jsp">
 <body>
 	<table border="1" width="1400" height="600" align="center">
 		<tr height="150">
@@ -175,4 +176,4 @@
 		</tr>
 	</table>
 </body>
-
+</form>
