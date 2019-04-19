@@ -121,7 +121,7 @@
 	try {
 		DBManager db = DBManager.getInstance();
 		Connection con = db.open();
-		String sql = "select count(*) from index order by id desc";
+		String sql = "select count(*) from `index` order by id desc";
 		PreparedStatement stmt = con.prepareStatement(sql);
 		ResultSet rs = stmt.executeQuery();
 		if(rs.next()) {
