@@ -8,10 +8,19 @@
 <%@page import="db.DBManager"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+    
+<form method="post" action="list_proc.jsp">
+<table border="1">
+  <tr>
+    <td height="50" width="200"><textarea name="I_Title"></textarea>
+    <input type="submit" value="저장"></td>
+  </tr>
+</table>
+</form>
 
 <%
-	String ID = request.getParameter("ID");
-	String I_NO = "";
+	String ID = (String)session.getAttribute("id");
+	String I_NO = request.getParameter("I_Title");
 	String Title = "";
 	List<String> noList = new ArrayList<>();
 	List<String> titleList = new ArrayList<>();
@@ -21,6 +30,7 @@
 	try { 
 		DBManager db = DBManager.getInstance();
 		Connection con = db.open();
+	
 		String sql = "SELECT COUNT(I_NO) AS INDEXNO FROM `index` WHERE I_NO ";
 		sql += "IN (SELECT DISTINCT I_NO  FROM `index` GROUP BY I_NO)";
 		PreparedStatement stmt = con.prepareStatement(sql);
@@ -45,24 +55,18 @@
 		e.printStackTrace();
 	}	
 
-%>
 
-<%	
+
 	for(int num = 0; num < cntIdx; num++){
 %>		 
 	<table border="1">
-               
                <tr>
-                  <!-- 첫번째 줄 시작 -->
                   <td height="100" width="200">
                      <input type="button" value="<%=titleList.get(num)%>" onclick="#"
                      style="width : 200 ; height : 100">   	 
                   </td>
                </tr>
-            </table> 
-            
-<%-- href="main.jsp?id=<%=I_NO%>" --%>
- 		    
-<%
+            </table>
+<% 
 	}
 %>
