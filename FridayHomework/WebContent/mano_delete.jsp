@@ -12,7 +12,7 @@
 	try {
 		DBManager db = DBManager.getInstance();
 		Connection con = db.open();
-		String sql = "delete from mano where I_NO=? and M_NO=?";
+		String sql = "delete from meno where I_NO=? and M_NO=?";
 		PreparedStatement stmt = con.prepareStatement(sql);
 		stmt.setString(1, I_NO);
 		stmt.setString(2, M_NO);

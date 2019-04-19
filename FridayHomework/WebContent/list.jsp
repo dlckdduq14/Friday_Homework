@@ -2,130 +2,41 @@
 <%@page import="java.sql.ResultSet"%>
 <%@page import="java.sql.PreparedStatement"%>
 <%@page import="java.sql.Connection"%>
+<%@page import="java.util.List"%>
+<%@page import="java.util.ArrayList"%>
+
 <%@page import="db.DBManager"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 
-<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
-<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
-
-		<div class="card" style="width:400px">
-			<div class="card-body">
- 		    <h4 class="card-title">title</h4>
- 		    <a href="view.jsp?id=914" class="btn btn-primary">
- 		    	버튼
- 		    </a>
- 		  </div>
- 		</div>
-
-		<div class="card" style="width:400px">
-			<div class="card-body">
- 		    <h4 class="card-title">title</h4>
- 		    <a href="view.jsp?id=913" class="btn btn-primary">
- 		    	버튼
- 		    </a>
- 		  </div>
- 		</div>
-
-		<div class="card" style="width:400px">
-			<div class="card-body">
- 		    <h4 class="card-title">title</h4>
- 		    <a href="view.jsp?id=912" class="btn btn-primary">
- 		    	버튼
- 		    </a>
- 		  </div>
- 		</div>
-
-		<div class="card" style="width:400px">
-			<div class="card-body">
- 		    <h4 class="card-title">title</h4>
- 		    <a href="view.jsp?id=911" class="btn btn-primary">
- 		    	버튼
- 		    </a>
- 		  </div>
- 		</div>
-
-		<div class="card" style="width:400px">
-			<div class="card-body">
- 		    <h4 class="card-title">title</h4>
- 		    <a href="view.jsp?id=910" class="btn btn-primary">
- 		    	버튼
- 		    </a>
- 		  </div>
- 		</div>
-
-		<div class="card" style="width:400px">
-			<div class="card-body">
- 		    <h4 class="card-title">title</h4>
- 		    <a href="view.jsp?id=909" class="btn btn-primary">
- 		    	버튼
- 		    </a>
- 		  </div>
- 		</div>
-
-		<div class="card" style="width:400px">
-			<div class="card-body">
- 		    <h4 class="card-title">title</h4>
- 		    <a href="view.jsp?id=908" class="btn btn-primary">
- 		    	버튼
- 		    </a>
- 		  </div>
- 		</div>
-
-		<div class="card" style="width:400px">
-			<div class="card-body">
- 		    <h4 class="card-title">title</h4>
- 		    <a href="view.jsp?id=907" class="btn btn-primary">
- 		    	버튼
- 		    </a>
- 		  </div>
- 		</div>
-
-		<div class="card" style="width:400px">
-			<div class="card-body">
- 		    <h4 class="card-title">title</h4>
- 		    <a href="view.jsp?id=906" class="btn btn-primary">
- 		    	버튼
- 		    </a>
- 		  </div>
- 		</div>
-
-		<div class="card" style="width:400px">
-			<div class="card-body">
- 		    <h4 class="card-title">title</h4>
- 		    <a href="view.jsp?id=905" class="btn btn-primary">
- 		    	버튼
- 		    </a>
- 		  </div>
- 		</div>
-
 <%
-	String pageStr = request.getParameter("page");
-
-	int pageNum = 0;
-	try{
-		pageNum = Integer.parseInt(pageStr);	
-	}catch(Exception e){
-		pageNum = 1;
-	}
-		
-	// 시작번호 끝번호 아아내기
-	int startRow = 0;
-	int endRow = 0;
-	endRow = pageNum * 10;
-	startRow = endRow - 9;
-	int total = 0;
+	String ID = request.getParameter("ID");
+	String I_NO = "";
+	String Title = "";
+	List<String> noList = new ArrayList<>();
+	List<String> titleList = new ArrayList<>();
 	
-	try {
+	int cntIdx = 0;
+	
+	try { 
 		DBManager db = DBManager.getInstance();
 		Connection con = db.open();
-		String sql = "select count(*) from `index` order by id desc";
+		String sql = "SELECT COUNT(I_NO) AS INDEXNO FROM `index` WHERE I_NO ";
+		sql += "IN (SELECT DISTINCT I_NO  FROM `index` GROUP BY I_NO)";
 		PreparedStatement stmt = con.prepareStatement(sql);
 		ResultSet rs = stmt.executeQuery();
 		if(rs.next()) {
-			total = rs.getInt("count(*)");
+			cntIdx = rs.getInt("INDEXNO");
+		}
+		
+		String sql2 = "SELECT I_NO , I_Title FROM `index` where ID='ai'";
+		PreparedStatement stmt2 = con.prepareStatement(sql2);
+		ResultSet rs2 = stmt2.executeQuery();
+		while(rs2.next()) {
+			I_NO = rs2.getString("I_NO");
+			Title = rs2.getString("I_Title");
+			noList.add(I_NO);
+			titleList.add(Title);
 		}
 		
 	} catch (ClassNotFoundException e) {
@@ -134,4 +45,24 @@
 		e.printStackTrace();
 	}	
 
+%>
+
+<%	
+	for(int num = 0; num < cntIdx; num++){
+%>		 
+	<table border="1">
+               
+               <tr>
+                  <!-- 첫번째 줄 시작 -->
+                  <td height="100" width="200">
+                     <input type="button" value="<%=titleList.get(num)%>" onclick="#"
+                     style="width : 200 ; height : 100">   	 
+                  </td>
+               </tr>
+            </table> 
+            
+<%-- href="main.jsp?id=<%=I_NO%>" --%>
+ 		    
+<%
+	}
 %>

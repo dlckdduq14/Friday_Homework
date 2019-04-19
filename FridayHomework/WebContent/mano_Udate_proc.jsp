@@ -14,7 +14,7 @@
 	try {
 		DBManager db = DBManager.getInstance();
 		Connection con = db.open();
-		String sql = "insert into mano values (?, ?, ?, ?)";
+		String sql = "insert into meno values (?, ?, ?, ?)";
 		PreparedStatement stmt = con.prepareStatement(sql);
 		stmt.setString(1, M_NO);
 		stmt.setString(2, M_Contents);
