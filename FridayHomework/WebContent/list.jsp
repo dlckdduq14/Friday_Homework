@@ -31,7 +31,7 @@
 
 		<div class="card" style="width:400px">
 			<div class="card-body">
- 		    <h4 class="card-title">title97</h4>
+ 		    <h4 class="card-title">title</h4>
  		    <a href="view.jsp?id=912" class="btn btn-primary">
  		    	버튼
  		    </a>
@@ -40,7 +40,7 @@
 
 		<div class="card" style="width:400px">
 			<div class="card-body">
- 		    <h4 class="card-title">title96</h4>
+ 		    <h4 class="card-title">title</h4>
  		    <a href="view.jsp?id=911" class="btn btn-primary">
  		    	버튼
  		    </a>
@@ -49,7 +49,7 @@
 
 		<div class="card" style="width:400px">
 			<div class="card-body">
- 		    <h4 class="card-title">title95</h4>
+ 		    <h4 class="card-title">title</h4>
  		    <a href="view.jsp?id=910" class="btn btn-primary">
  		    	버튼
  		    </a>
@@ -58,7 +58,7 @@
 
 		<div class="card" style="width:400px">
 			<div class="card-body">
- 		    <h4 class="card-title">title94</h4>
+ 		    <h4 class="card-title">title</h4>
  		    <a href="view.jsp?id=909" class="btn btn-primary">
  		    	버튼
  		    </a>
@@ -67,7 +67,7 @@
 
 		<div class="card" style="width:400px">
 			<div class="card-body">
- 		    <h4 class="card-title">title93</h4>
+ 		    <h4 class="card-title">title</h4>
  		    <a href="view.jsp?id=908" class="btn btn-primary">
  		    	버튼
  		    </a>
@@ -76,7 +76,7 @@
 
 		<div class="card" style="width:400px">
 			<div class="card-body">
- 		    <h4 class="card-title">title92</h4>
+ 		    <h4 class="card-title">title</h4>
  		    <a href="view.jsp?id=907" class="btn btn-primary">
  		    	버튼
  		    </a>
@@ -85,7 +85,7 @@
 
 		<div class="card" style="width:400px">
 			<div class="card-body">
- 		    <h4 class="card-title">title91</h4>
+ 		    <h4 class="card-title">title</h4>
  		    <a href="view.jsp?id=906" class="btn btn-primary">
  		    	버튼
  		    </a>
@@ -94,7 +94,7 @@
 
 		<div class="card" style="width:400px">
 			<div class="card-body">
- 		    <h4 class="card-title">title90</h4>
+ 		    <h4 class="card-title">title</h4>
  		    <a href="view.jsp?id=905" class="btn btn-primary">
  		    	버튼
  		    </a>
