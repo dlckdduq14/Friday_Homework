@@ -26,6 +26,7 @@
 					List<String> titleList = new ArrayList<>();
 					List<String> ContentsList = new ArrayList<>();
 					List<Integer> NOList = new ArrayList<>();
+					List<Integer> I_NOList = new ArrayList<>();
 					int cntIdx = 0;
 					try {
 						DBManager db = DBManager.getInstance();
@@ -37,12 +38,13 @@
 							cntIdx = rs2.getInt("INDEXNO");
 						}
 
-						String sql = "select M_NO, M_Title, M_Contents from meno where I_NO ='1' ";
+						String sql = "select M_NO, M_Title, M_Contents ,I_NO from meno where I_NO ='1' ";
 
 						PreparedStatement stmt = con.prepareStatement(sql);
 						// 		stmt.setString(1, I_NO_B);
 						ResultSet rs = stmt.executeQuery();
 						while (rs.next()) {
+							I_NOList.add(rs.getInt("I_NO"));
 							NOList.add(rs.getInt("M_NO"));
 							titleList.add(rs.getString("M_Title"));
 							ContentsList.add(rs.getString("M_Contents"));
@@ -59,9 +61,7 @@
 				<table border="1">
 					<tr>
 						<th width="200" align="center"><%=titleList.get(num)%></th>
-						<th><button type="button"
-								onclick="Update(<%=NOList.get(num)%>)">수정</button></th>
-						<th><button type="button" onclick="del(<%=NOList.get(num)%>)">닫기</button></th>
+						<th><button type="button" onclick="del(<%=NOList.get(num)%>,<%=I_NOList.get(num)%>)">닫기</button></th>
 					</tr>
 					<tr>
 						<!-- 첫번째 줄 시작 -->
@@ -74,16 +74,10 @@
 				</table> <%
  	}
  %> <script>
-	function del(num) {
+	function del(num, num2) {
 		var isOk = confirm("삭제 할래?");
 		if(isOk) { // 삭제
-			location = 'mano_delete.jsp?I_NO=<%=I_NO%>&M_NO='+ num ;
-		}
-	}
-	function Update(num) {
-		var isOk = confirm("수정 할래?");
-		if(isOk) { // 삭제
-			location = 'mano_Udate.jsp?I_NO=<%=I_NO%>';
+			location = 'mano_delete.jsp?I_NO='+num2+'&M_NO='+ num ;
 		}
 	}
 </script>
@@ -139,7 +133,7 @@
 				<table border="1">
 					<tr>
 						<td height="100" width="200"><input type="button"
-							value="<%=titleList_B.get(num)%>" onclick="#"
+							value="<%=titleList_B.get(num)%>" 
 							style="width: 200; height: 100"></td>
 					</tr>
 				</table> <%
@@ -151,7 +145,6 @@
 
 		<!-- 입력하는곳  -->
 		<tr height="30%">
-			<td colspan="3">
 		<tr>
 			<td>title:</td>
 			<td colspan="3"><input type="text" name="title"></td>
